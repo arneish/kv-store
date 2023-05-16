@@ -10,4 +10,4 @@ Key Ideas:
 Why is it persistent?
 1. It is 100% persistent since writes must succeed on the Log file prior to updation in the in-memory hashmap. 
 2. In the case of an outage, the service will restart and reattempt processing the Log file from the last checkpoint. 
-3. In production-level code, this checkpoint must be preserved on disk. In this code however, this checkpoint is stored in-memory -- which means on every restart, the whole log file will be processed from the first event to compute the final state to be written to the disk, which is unnecessary.
+3. In production-level code, this checkpoint must be preserved on disk. In this code however, this checkpoint is stored in-memory -- which means on every restart, the whole log file will be processed from the first event to compute the final state to be written to the disk (which is unnecessary but accurate, at least).
