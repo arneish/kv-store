@@ -4,7 +4,7 @@ A persistent in-memory Key Value store concept.
 Key Ideas:
 1. PUT(k,v): records Event in Log file, and then updates in-memory hashmap with {k,v}.
 2. GET(k,v): returns the value from the hashmap for key _k_.
-3. Async Flushing: a scheduled "compacting" thread that periodically processes and "flushes" the latest batch of Events in the Log file to the database data files. 
+3. Async Flushing: an asynchronously running scheduled "flushing" thread that periodically processes and "flushes" the latest batch of Events in the Log file to the database data files. It does so by compacting the latest batch of events into the final state for these affected keys, and then writing these updated values to the disk file.
 4. On Startup, KV store object loads the existing disk into memory. 
 
 Why is it persistent?
