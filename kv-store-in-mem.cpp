@@ -1,3 +1,6 @@
+// To compile and run:
+// g++ -std=c++17 -pthread kv-store-in-mem.cpp -o kv && ./kv
+
 #include<iostream>
 #include<fstream>
 #include<thread>
